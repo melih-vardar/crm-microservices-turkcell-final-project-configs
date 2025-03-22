@@ -1,1 +1,25 @@
 # analyticsservice dev configuration
+spring:
+  eureka:
+    client:
+      service-url:
+        defaultZone: "http://localhost:8888/eureka/"
+      register-with-eureka: true
+      fetch-registry: true
+    instance:
+      prefer-ip-address: true
+      instance-id: ${spring.application.name}:${server.port}
+
+  cloud:
+    function:
+      definition: CreateAnalyticsFunction;LoginAnalyticsFunction
+    stream:
+      defaultBinder:
+        CreateAnalytics-in-0:
+          destination: create-analytics
+          content-type: application/json
+          group: Analytics-group
+        LoginAnalytics-in-0:
+          destination: login-analytics
+          content-type: application/json
+          group: Analytics-group
