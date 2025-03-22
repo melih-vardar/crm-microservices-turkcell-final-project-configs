@@ -1,6 +1,8 @@
 spring:
+  application:
+    name: "user-service"
   datasource:
-    url: jdbc:postgresql://postgres_5433:5432/user
+    url: jdbc:postgresql://localhost:5433/user
     username: postgres
     password: postgres
   jpa:
@@ -30,18 +32,24 @@ spring:
           group: notification-group
       kafka:
         binder:
-          brokers: kafka:9092
+          brokers: localhost:9092
 
 # Encryption configuration
 encryption:
   secret-key: "YAQoNmCUbYdDTnwgCh11xPQ5pSI/uZJDM+dzCBL683s=" # Replace with a properly generated key in production
 
+# JWT Configuration
 jwt:
+  secret-key: very-secure-jwt-secret-key-used-for-signing-tokens-in-user-service
+  expiration-ms: 86400000
+  issuer: user-service
+  token-prefix: "Bearer "
+  header-string: Authorization
 
 eureka:
   client:
     service-url:
-      defaultZone: "http://discovery-server:8888/eureka/"
+      defaultZone: "http://localhost:8888/eureka/"
     register-with-eureka: true
     fetch-registry: true
   instance:
@@ -52,5 +60,6 @@ springdoc:
   api-docs:
     path: /api-docs
   swagger-ui:
-    path: /swagger-ui.html
+    path: /swagger-ui/index.html
     operationsSorter: method
+    disable-swagger-default-url: true
