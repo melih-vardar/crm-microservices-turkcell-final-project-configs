@@ -1,8 +1,4 @@
-server:
-  port: 8071
 spring:
-  application:
-    name: analyticsservice
   datasource:
     url: jdbc:postgresql://localhost:5471/analytics
     username: postgres
