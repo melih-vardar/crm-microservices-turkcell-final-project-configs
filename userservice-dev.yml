@@ -14,7 +14,7 @@ spring:
     show-sql: true
   cloud:
     function:
-      definition: emailNotification;smsNotification;pushNotification
+      definition: emailNotification;smsNotification;pushNotification;CreateUserAnalytics
     stream:
       defaultBinder: kafka
       bindings:
@@ -30,6 +30,11 @@ spring:
           destination: pushNotificationFunction-in-0
           content-type: application/json
           group: notification-group
+        CreateUserAnalytics-out-0:
+          destination: CreateUserAnalytics-in-0
+          content-type: application/json
+          group: Analytics-group
+
       kafka:
         binder:
           brokers: localhost:9092

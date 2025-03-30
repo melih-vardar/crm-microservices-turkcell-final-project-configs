@@ -1,25 +1,63 @@
-# analyticsservice dev configuration
+server:
+  port: 8071
 spring:
-  eureka:
-    client:
-      service-url:
-        defaultZone: "http://localhost:8888/eureka/"
-      register-with-eureka: true
-      fetch-registry: true
-    instance:
-      prefer-ip-address: true
-      instance-id: ${spring.application.name}:${server.port}
+  application:
+    name: analyticsservice
+  datasource:
+    url: jdbc:postgresql://localhost:5471/analytics
+    username: postgres
+    password: postgres
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
 
   cloud:
     function:
-      definition: CreateAnalyticsFunction;LoginAnalyticsFunction
+      definition: CreateAnalyticsFunction;LoginAnalyticsFunction;CreateAnalyticsCustomerFunction;TicketAnalyticsFunction
     stream:
-      defaultBinder:
-        CreateAnalytics-in-0:
-          destination: create-analytics
+      defaultBinder: kafka
+      bindings:
+        CreateUserAnalytics-in-0:
+          destination: createUser-analytics
           content-type: application/json
           group: Analytics-group
-        LoginAnalytics-in-0:
-          destination: login-analytics
+        LoginUserAnalytics-in-0:
+          destination: loginUser-analytics
           content-type: application/json
           group: Analytics-group
+        CreateCustomerAnalytics-in-0:
+          destination: createCustomer-analytics
+          content-type: application/json
+          group: Analytics-group
+        TicketAnalyticsFunction-in-0:
+          destination: ticket-analytics
+          content-type: application/json
+          group: Analytics-group
+  security:
+    user:
+      name: prometheus
+      password: prometheus
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://localhost:8888/eureka/"
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
