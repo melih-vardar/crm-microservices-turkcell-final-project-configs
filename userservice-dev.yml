@@ -14,7 +14,7 @@ spring:
     show-sql: true
   cloud:
     function:
-      definition: emailNotification;smsNotification;pushNotification;CreateUserAnalytics
+      definition: emailNotification;smsNotification;pushNotification;CreateUserAnalytics;CreateUserAnalytics
     stream:
       defaultBinder: kafka
       bindings:
