@@ -11,3 +11,26 @@ eureka:
 jwt:
   secret: 5367566B59703373367639792F423F4528482B4D6251655468576D5A71347437
   expiration: 86400000 # 24 hours in milliseconds
+
+# Actuator and Monitoring Configuration
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      percentiles:
+        http.server.requests: 0.5, 0.95, 0.99
