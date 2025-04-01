@@ -43,13 +43,12 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: "http://discovery-server:8888/eureka/"
+      defaultZone: "http://discoveryserver:8888/eureka/"
     register-with-eureka: true
     fetch-registry: true
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
-
 
 management:
   endpoints:
@@ -72,4 +71,3 @@ management:
         http.server.requests: true
       percentiles:
         http.server.requests: 0.5, 0.95, 0.99
-

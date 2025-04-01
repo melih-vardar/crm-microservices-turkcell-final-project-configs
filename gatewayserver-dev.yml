@@ -3,48 +3,48 @@ spring:
     gateway:
       routes:
         - id: "authservice"
-          uri: "lb://user-service"
+          uri: "lb://userservice"
           predicates:
             - "Path=/api/auth/**"
 
         - id: "userservice"
-          uri: "lb://user-service"
+          uri: "lb://userservice"
           predicates:
             - "Path=/api/users/**"
 
         - id: "customerservice"
-          uri: "lb://customer-service"
+          uri: "lb://customerservice"
           predicates:
-            - Path=/customer-service/**,/api/customers/**
+            - Path=/customerservice/**,/api/customers/**
           filters:
             - StripPrefix=1
 
         - id: "contractservice"
-          uri: "lb://contract-service"
+          uri: "lb://contractservice"
           predicates:
             - "Path=/api/contracts/**"
-        - id: "plan-service"
-          uri: "lb://plan-service"
+        - id: "planservice"
+          uri: "lb://planservice"
           predicates:
             - "Path=/api/plans/**"
 
         - id: "billingservice"
-          uri: "lb://billing-service"
+          uri: "lb://billingservice"
           predicates:
             - "Path=/api/billings/**"
 
         - id: "supportservice"
-          uri: "lb://support-service"
+          uri: "lb://supportservice"
           predicates:
             - "Path=/api/support/**"
 
         - id: "analyticsservice"
-          uri: "lb://analytics-service"
+          uri: "lb://analyticsservice"
           predicates:
             - "Path=/api/analytics/**"
 
         - id: "notificationservice"
-          uri: "lb://notification-service"
+          uri: "lb://notificationservice"
           predicates:
             - "Path=/api/notifications/**"
 eureka:

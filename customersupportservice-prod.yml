@@ -9,7 +9,7 @@ jwt:
 eureka:
   client:
     service-url:
-      defaultZone: http://discovery-server:8888/eureka
+      defaultZone: http://discoveryserver:8888/eureka
   instance:
     prefer-ip-address: true
 

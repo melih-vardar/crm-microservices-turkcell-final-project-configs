@@ -1,6 +1,6 @@
 spring:
   application:
-    name: "user-service"
+    name: "userservice"
   datasource:
     url: jdbc:postgresql://postgres_5433:5432/user
     username: postgres
@@ -48,16 +48,16 @@ encryption:
 
 # JWT Configuration
 jwt:
-  secret-key: very-secure-jwt-secret-key-used-for-signing-tokens-in-user-service
+  secret-key: very-secure-jwt-secret-key-used-for-signing-tokens-in-userservice
   expiration-ms: 86400000
-  issuer: user-service
+  issuer: userservice
   token-prefix: "Bearer "
   header-string: Authorization
 
 eureka:
   client:
     service-url:
-      defaultZone: "http://discovery-server:8888/eureka/"
+      defaultZone: "http://discoveryserver:8888/eureka/"
     register-with-eureka: true
     fetch-registry: true
   instance:
