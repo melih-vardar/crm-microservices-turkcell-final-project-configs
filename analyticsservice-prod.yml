@@ -17,15 +17,15 @@ spring:
     stream:
       defaultBinder: kafka
       bindings:
-        CreateUserAnalytics-in-0:
+        CreateAnalyticsFunction-in-0:
           destination: createUser-analytics
           content-type: application/json
           group: Analytics-group
-        LoginUserAnalytics-in-0:
+        LoginAnalyticsFunction-in-0:
           destination: loginUser-analytics
           content-type: application/json
           group: Analytics-group
-        CreateCustomerAnalytics-in-0:
+        CreateAnalyticsCustomerFunction-in-0:
           destination: createCustomer-analytics
           content-type: application/json
           group: Analytics-group
@@ -59,4 +59,17 @@ management:
   endpoint:
     health:
       show-details: always
+    metrics:
+      enabled: true
+    prometheus:
+      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    distribution:
+      percentiles-histogram:
+        http.server.requests: true
+      percentiles:
+        http.server.requests: 0.5, 0.95, 0.99
 
