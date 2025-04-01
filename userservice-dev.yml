@@ -31,9 +31,9 @@ spring:
           content-type: application/json
           group: notification-group
         CreateUserAnalytics-out-0:
-          destination: CreateUserAnalytics-in-0
+          destination: CreateAnalyticsFunction-in-0
           content-type: application/json
-          group: Analytics-group
+          group: Analytics-group-create
 
       kafka:
         binder:
