@@ -20,11 +20,13 @@ spring:
         CreateAnalyticsFunction-in-0:
           destination: createUser-analytics
           content-type: application/json
-          group: Analytics-group
+          group: Analytics-group-create
+          consumer:
+            auto-offset-reset: earliest
         LoginAnalyticsFunction-in-0:
           destination: loginUser-analytics
           content-type: application/json
-          group: Analytics-group
+          group: Analytics-group-login
         CreateAnalyticsCustomerFunction-in-0:
           destination: createCustomer-analytics
           content-type: application/json
