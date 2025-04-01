@@ -53,7 +53,7 @@ jwt:
 eureka:
   client:
     service-url:
-      defaultZone: "http://localhost:8888/eureka/"
+      defaultZone: "http://discovery-server:8888/eureka/"
     register-with-eureka: true
     fetch-registry: true
   instance:
