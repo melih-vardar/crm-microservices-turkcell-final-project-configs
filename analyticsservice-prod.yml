@@ -28,11 +28,11 @@ spring:
         CreateAnalyticsCustomerFunction-in-0:
           destination: createCustomer-analytics
           content-type: application/json
-          group: Analytics-group
+          group: Analytics-group-customer
         TicketAnalyticsFunction-in-0:
           destination: ticket-analytics
           content-type: application/json
-          group: Analytics-group
+          group: Analytics-group-ticket
       kafka:
         binder:
           brokers: kafka:9092

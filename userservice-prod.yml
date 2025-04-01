@@ -34,6 +34,10 @@ spring:
           destination: createUser-analytics
           content-type: application/json
           group: Analytics-group-create
+        LoginUserAnalytics-out-0:
+          destination: loginUser-analytics
+          content-type: application/json
+          group: Analytics-group-login
       kafka:
         binder:
           brokers: kafka:9092
