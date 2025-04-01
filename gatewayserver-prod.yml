@@ -2,48 +2,48 @@ spring:
   cloud:
     gateway:
       routes:
-        - id: "auth-service"
+        - id: "authservice"
           uri: "lb://user-service"
           predicates:
             - "Path=/api/auth/**"
 
-        - id: "user-service"
+        - id: "userservice"
           uri: "lb://user-service"
           predicates:
             - "Path=/api/users/**"
 
-        - id: "customer-service"
+        - id: "customerservice"
           uri: "lb://customer-service"
           predicates:
             - Path=/customer-service/**,/api/customers/**
           filters:
             - StripPrefix=1
 
-        - id: "contract-service"
+        - id: "contractservice"
           uri: "lb://contract-service"
           predicates:
             - "Path=/api/contracts/**"
-        - id: "plan-service"
+        - id: "planservice"
           uri: "lb://plan-service"
           predicates:
             - "Path=/api/plans/**"
 
-        - id: "billing-service"
+        - id: "billingservice"
           uri: "lb://billing-service"
           predicates:
             - "Path=/api/billings/**"
 
-        - id: "support-service"
+        - id: "supportservice"
           uri: "lb://support-service"
           predicates:
             - "Path=/api/support/**"
 
-        - id: "analytics-service"
+        - id: "analyticsservice"
           uri: "lb://analytics-service"
           predicates:
             - "Path=/api/analytics/**"
 
-        - id: "notification-service"
+        - id: "notificationservice"
           uri: "lb://notification-service"
           predicates:
             - "Path=/api/notifications/**"
