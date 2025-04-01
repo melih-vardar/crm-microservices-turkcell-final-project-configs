@@ -17,12 +17,10 @@ spring:
     stream:
       defaultBinder: kafka
       bindings:
-        CreateAnalyticsFunction-in-0:
+        CreateAnalyticsFunction-in-0: #createUser-analytics topic dinle
           destination: createUser-analytics
           content-type: application/json
           group: Analytics-group-create
-          consumer:
-            auto-offset-reset: earliest
         LoginAnalyticsFunction-in-0:
           destination: loginUser-analytics
           content-type: application/json
