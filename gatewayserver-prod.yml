@@ -23,6 +23,7 @@ spring:
           uri: "lb://contractservice"
           predicates:
             - "Path=/api/contracts/**"
+
         - id: "planservice"
           uri: "lb://planservice"
           predicates:
