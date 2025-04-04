@@ -48,7 +48,7 @@ encryption:
 
 # JWT Configuration
 jwt:
-  secret-key: very-secure-jwt-secret-key-used-for-signing-tokens-in-userservice
+  secret-key: default-very-secure-jwt-secret-key-used-for-signing-tokens-512-bits-secure
   expiration-ms: 86400000
   issuer: userservice
   token-prefix: "Bearer "
