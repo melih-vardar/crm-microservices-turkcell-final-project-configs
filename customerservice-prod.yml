@@ -75,10 +75,3 @@ management:
         http.server.requests: true
       percentiles:
         http.server.requests: 0.5, 0.95, 0.99
-# JWT Configuration
-jwt:
-  secret-key: very-secure-jwt-secret-key-used-for-signing-tokens-in-userservice  # User Service ile aynı secret key olmalı
-  expiration-ms: 86400000
-  issuer: userservice
-  token-prefix: "Bearer "
-  header-string: Authorization
