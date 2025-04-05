@@ -1,6 +1,11 @@
 spring:
   mongodb:
     uri: mongodb://localhost:27017/customerSupportdb
+  redis:
+    host: redis
+    port: 6379
+    timeout: 2000
+    connect-timeout: 2000
 
 jwt:
   secret: turkcellCRMMicroservicesSecretKey123456789012345678901234567890
