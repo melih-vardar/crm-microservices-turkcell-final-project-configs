@@ -38,6 +38,11 @@ spring:
       kafka:
         binder:
           brokers: localhost:9092
+  redis:
+    host: redis
+    port: 6379
+    timeout: 2000
+    connect-timeout: 2000
 
 # Encryption configuration
 encryption:
