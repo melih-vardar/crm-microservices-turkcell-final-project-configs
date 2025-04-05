@@ -15,9 +15,7 @@ spring:
         - id: "customerservice"
           uri: "lb://customerservice"
           predicates:
-            - Path=/customerservice/**,/api/customers/**
-          filters:
-            - StripPrefix=1
+            - "Path=/api/customers/**"
 
         - id: "contractservice"
           uri: "lb://contractservice"
