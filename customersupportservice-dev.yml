@@ -1,6 +1,7 @@
 spring:
-  mongodb:
-    uri: mongodb://root:root@mongodb:27017/customerSupportdb?authSource=admin
+  data:
+    mongodb:
+      uri: mongodb://root:root@mongodb:27017/customerSupportdb?authSource=admin
   redis:
     host: redis
     port: 6379
