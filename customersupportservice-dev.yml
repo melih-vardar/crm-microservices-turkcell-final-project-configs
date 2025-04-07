@@ -1,6 +1,6 @@
 spring:
   mongodb:
-    uri: mongodb://localhost:27017/customerSupportdb
+    uri: mongodb://mongodb:27017/customerSupportdb
   redis:
     host: redis
     port: 6379
@@ -24,9 +24,12 @@ jwt:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8888/eureka
+      defaultZone: "http://discovery-server:8888/eureka/"
+    register-with-eureka: true
+    fetch-registry: true
   instance:
     prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
 
 springdoc:
   api-docs:
