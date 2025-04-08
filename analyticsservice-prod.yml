@@ -33,6 +33,10 @@ spring:
           destination: ticket-analytics
           content-type: application/json
           group: Analytics-group-ticket
+        BillAnalyticsFunction-in-0:
+          destination: bill-analytics
+          content-type: application/json
+          group: Analytics-group-bill
       kafka:
         binder:
           brokers: kafka:9092

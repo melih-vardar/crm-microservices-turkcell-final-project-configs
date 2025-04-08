@@ -11,8 +11,6 @@ spring:
     hibernate:
       ddl-auto: update
   cloud:
-    function:
-      definition: emailNotification;smsNotification;pushNotification
     stream:
       defaultBinder: kafka
       bindings:

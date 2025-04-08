@@ -1,12 +1,22 @@
 spring:
   mongodb:
-    uri: mongodb://localhost:27017/customerSupportdb
+    uri: mongodb://mongodb:27017/customerSupportdb
   redis:
     host: redis
     port: 6379
     timeout: 2000
     connect-timeout: 2000
-
+  cloud:
+    stream:
+      defaultBinder: kafka
+      bindings:
+        TicketAnalytics-out-0:
+          destination: ticket-analytics
+          content-type: application/json
+          group: Analytics-group-ticket
+      kafka:
+        binder:
+          brokers: kafka:9092
 jwt:
   secret: turkcellCRMMicroservicesSecretKey123456789012345678901234567890
   expiration: 86400000
@@ -14,9 +24,12 @@ jwt:
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8888/eureka
+      defaultZone: "http://discovery-server:8888/eureka/"
+    register-with-eureka: true
+    fetch-registry: true
   instance:
     prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
 
 springdoc:
   api-docs:
