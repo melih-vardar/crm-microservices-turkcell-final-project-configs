@@ -1,15 +1,15 @@
 spring:
   datasource:
-    url: jdbc:postgresql://postgres5471data:5432/analytics
+    url: jdbc:postgresql://localhost:5432/analytics
     username: postgres
     password: postgres
   jpa:
+    hibernate:
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
-    hibernate:
-      ddl-auto: update
 
   cloud:
     function:
@@ -47,12 +47,13 @@ spring:
 eureka:
   client:
     service-url:
-      defaultZone: "http://discoveryserver:8888/eureka/"
+      defaultZone: "http://localhost:8888/eureka/"
     register-with-eureka: true
     fetch-registry: true
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
+
 
 management:
   endpoints:
