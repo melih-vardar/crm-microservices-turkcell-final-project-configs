@@ -10,36 +10,36 @@ spring:
       mail.smtp.starttls.required: true
     debug: true
 
-    cloud:
-      function:
-        definition: emailNotificationFunction;smsNotificationFunction;pushNotificationFunction
-      stream:
-        defaultBinder: kafka
-        bindings:
-          emailNotification-in-0:
-            destination: email-notifications
-            content-type: application/json
-            group: notification-group
-          smsNotification-in-0:
-            destination: sms-notifications
-            content-type: application/json
-            group: notification-group
-          pushNotification-in-0:
-            destination: push-notifications
-            content-type: application/json
-            group: notification-group
-        kafka:
-          binder:
-            brokers: kafka:9092
-  eureka:
-    client:
-      service-url:
-        defaultZone: "http://discoveryserver:8888/eureka/"
-      register-with-eureka: true
-      fetch-registry: true
-    instance:
-      prefer-ip-address: true
-      instance-id: ${spring.application.name}:${server.port}
+  cloud:
+    function:
+      definition: emailNotificationFunction;smsNotificationFunction;pushNotificationFunction
+    stream:
+      defaultBinder: kafka
+      bindings:
+        emailNotification-in-0:
+          destination: email-notifications
+          content-type: application/json
+          group: notification-group
+        smsNotification-in-0:
+          destination: sms-notifications
+          content-type: application/json
+          group: notification-group
+        pushNotification-in-0:
+          destination: push-notifications
+          content-type: application/json
+          group: notification-group
+      kafka:
+        binder:
+          brokers: kafka:9092
+eureka:
+  client:
+    service-url:
+      defaultZone: "http://discoveryserver:8888/eureka/"
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
 
 # Actuator and Monitoring Configuration
 management:

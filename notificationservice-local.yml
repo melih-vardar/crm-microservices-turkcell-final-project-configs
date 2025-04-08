@@ -1,56 +1,45 @@
 spring:
-  datasource:
-    url: jdbc:postgresql://postgres_5435:5432/customer
-    username: postgres
-    password: postgres
-  jpa:
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: turkcellpair1@gmail.com
+    password: pouxdijagcjgyuyb
+    protocol: smtp
     properties:
-      hibernate:
-        dialect: org.hibernate.dialect.PostgreSQLDialect
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+      mail.smtp.starttls.enable: true
+      mail.smtp.starttls.required: true
+    debug: true
+
   cloud:
+    function:
+      definition: emailNotificationFunction;smsNotificationFunction;pushNotificationFunction
     stream:
       defaultBinder: kafka
       bindings:
-        emailNotification-out-0:
-          destination: emailNotificationFunction-in-0
+        emailNotification-in-0:
+          destination: email-notifications
           content-type: application/json
           group: notification-group
-        smsNotification-out-0:
-          destination: smsNotificationFunction-in-0
+        smsNotification-in-0:
+          destination: sms-notifications
           content-type: application/json
           group: notification-group
-        pushNotification-out-0:
-          destination: pushNotificationFunction-in-0
+        pushNotification-in-0:
+          destination: push-notifications
           content-type: application/json
           group: notification-group
       kafka:
         binder:
-          brokers: kafka:9092
-  redis:
-    host: redis
-    port: 6379
-    timeout: 2000
-    connect-timeout: 2000
-
+          brokers: localhost:9092
 eureka:
   client:
     service-url:
-      defaultZone: "http://discovery-server:8888/eureka/"
+      defaultZone: "http://localhost:8888/eureka/"
     register-with-eureka: true
     fetch-registry: true
   instance:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
-
-springdoc:
-  api-docs:
-    path: /api-docs
-  swagger-ui:
-    path: /swagger-ui.html
-    operationsSorter: method
 
 # Actuator and Monitoring Configuration
 management:

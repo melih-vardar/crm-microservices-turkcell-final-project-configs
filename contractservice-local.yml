@@ -2,7 +2,7 @@ spring:
   application:
     name: "contractservice"
   datasource:
-    url: jdbc:postgresql://postgres_5436:5432/contract
+    url: jdbc:postgresql://localhost:5436/contract
     username: postgres
     password: postgres
   jpa:
@@ -33,7 +33,7 @@ jwt:
 eureka:
   client:
     service-url:
-      defaultZone: "http://discovery-server:8888/eureka/"
+      defaultZone: "http://localhost:8888/eureka/"
     register-with-eureka: true
     fetch-registry: true
   instance:

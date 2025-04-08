@@ -6,7 +6,17 @@ spring:
     port: 6379
     timeout: 2000
     connect-timeout: 2000
-
+  cloud:
+    stream:
+      defaultBinder: kafka
+      bindings:
+        TicketAnalytics-out-0:
+          destination: ticket-analytics
+          content-type: application/json
+          group: Analytics-group-ticket
+      kafka:
+        binder:
+          brokers: kafka:9092
 jwt:
   secret: turkcellCRMMicroservicesSecretKey123456789012345678901234567890
   expiration: 86400000
