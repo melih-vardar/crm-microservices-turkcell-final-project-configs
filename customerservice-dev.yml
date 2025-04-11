@@ -26,6 +26,10 @@ spring:
           destination: pushNotificationFunction-in-0
           content-type: application/json
           group: notification-group
+        CreateCustomerAnalytics-out-0:
+          destination: createCustomer-analytics
+          content-type: application/json
+          group: Analytics-group-customer
       kafka:
         binder:
           brokers: kafka:9092
