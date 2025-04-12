@@ -32,10 +32,10 @@ spring:
           predicates:
             - "Path=/api/billings/**"
 
-        - id: "supportservice"
-          uri: "lb://supportservice"
+        - id: "customersupportservice"
+          uri: "lb://customersupportservice"
           predicates:
-            - "Path=/api/support/**"
+            - "Path=/api/customer-support/**"
 
         - id: "analyticsservice"
           uri: "lb://analyticsservice"
