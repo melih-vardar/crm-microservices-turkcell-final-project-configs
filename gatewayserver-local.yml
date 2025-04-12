@@ -25,8 +25,7 @@ spring:
         - id: "planservice"
           uri: "lb://planservice"
           predicates:
-            - "Path=/api/plans/**"
-            - "Path=/api/basic-plans/**"
+            - "Path=/api/plans/**,/api/basic-plans/**"
 
         - id: "billingservice"
           uri: "lb://billingservice"
