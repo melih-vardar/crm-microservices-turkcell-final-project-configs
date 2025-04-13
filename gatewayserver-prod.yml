@@ -30,7 +30,7 @@ spring:
         - id: "billingservice"
           uri: "lb://billingservice"
           predicates:
-            - "Path=/api/billings/**"
+            - "Path=/api/billings/**,/api/payments/**"
 
         - id: "customersupportservice"
           uri: "lb://customersupportservice"
