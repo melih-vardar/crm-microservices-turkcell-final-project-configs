@@ -2,7 +2,7 @@ spring:
   application:
     name: "contractservice"
   datasource:
-    url: jdbc:postgresql://postgres_5436:5432/contract
+    url: jdbc:postgresql://postgres5436:5432/contract
     username: postgres
     password: postgres
   jpa:
