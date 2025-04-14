@@ -13,7 +13,7 @@ spring:
 
   cloud:
     function:
-      definition: CreateAnalyticsFunction;LoginAnalyticsFunction;CreateAnalyticsCustomerFunction;TicketAnalyticsFunction;BillAnalyticsFunction
+      definition: CreateAnalyticsFunction;LoginAnalyticsFunction;CreateAnalyticsCustomerFunction;BillAnalyticsFunction
     stream:
       defaultBinder: kafka
       bindings:
@@ -29,10 +29,6 @@ spring:
           destination: createCustomer-analytics
           content-type: application/json
           group: Analytics-group-customer
-        TicketAnalyticsFunction-in-0:
-          destination: ticket-analytics
-          content-type: application/json
-          group: Analytics-group-ticket
         BillAnalyticsFunction-in-0:
           destination: bill-analytics
           content-type: application/json

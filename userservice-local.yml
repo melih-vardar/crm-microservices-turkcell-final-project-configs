@@ -30,10 +30,14 @@ spring:
           destination: pushNotificationFunction-in-0
           content-type: application/json
           group: notification-group
-        CreateUserAnalytics-out-0:
-          destination: CreateAnalyticsFunction-in-0
+        CreateUserAnalytics-out-0: # CreateUserAnalytics-out-0 bindingi mesajları createUser-analytics topicine gönderiyor
+          destination: createUser-analytics
           content-type: application/json
           group: Analytics-group-create
+        LoginUserAnalytics-out-0:
+          destination: loginUser-analytics
+          content-type: application/json
+          group: Analytics-group-login
       kafka:
         binder:
           brokers: kafka:9092
